@@ -5,8 +5,8 @@ export default function Footer() {
     <footer className="w-full border-t border-gray-200 bg-gray-50 mt-10">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row md:justify-between gap-8 text-sm text-gray-700">
         {/* --- Brand + Description --- */}
-        <div className="flex-1">
-          <h2 className="text-xl font-semibold mb-2 text-gray-900">
+        <div className="flex-1 text-center lg:text-left">
+          <h2 className="text-xl  font-semibold mb-2 text-gray-900">
             Property Guru
           </h2>
           <p className="text-gray-600">
@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
 
         {/* --- Quick Links --- */}
-        <div>
+        <div className="text-center lg:text-left">
           <h3 className="font-semibold mb-3 text-gray-900">Quick Links</h3>
           <ul className="space-y-2">
             <li>
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         {/* --- Support --- */}
-        <div>
+        <div className="text-center lg:text-left">
           <h3 className="font-semibold mb-3 text-gray-900">Support</h3>
           <ul className="space-y-2">
             <li>
@@ -68,9 +68,9 @@ export default function Footer() {
         </div>
 
         {/* --- Social Media --- */}
-        <div>
+        <div className="text-center lg:text-left">
           <h3 className="font-semibold mb-3 text-gray-900">Follow Us</h3>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-center lg:justify-start">
             <a
               href="https://github.com/"
               target="_blank"

@@ -41,7 +41,7 @@ export default function ImageUploadInput({
       const newImages = acceptedFiles.map((file) => ({
         file,
         preview: URL.createObjectURL(file),
-        id: `${file.name}-${file.size}-${file.lastModified}`,
+        id: `${crypto.randomUUID()}`,
       }));
 
       setImages((prev) => [...prev, ...newImages]);
@@ -80,7 +80,10 @@ export default function ImageUploadInput({
   return (
     <div className="space-y-4">
       <Label htmlFor={name} className="font-bold text-lg mb-2">
-        Photos
+        Photos{" "}
+        {images.length > 0 && (
+          <span className="text-xs text-gray-500">{images.length}/5</span>
+        )}
       </Label>
       <div
         {...getRootProps()}
