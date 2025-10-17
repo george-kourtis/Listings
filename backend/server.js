@@ -60,7 +60,6 @@ app.get("/", (req, res) => {
 app.post("/api/create-listing", async (req, res) => {
     try {
         const validatedData = listingSchema.parse(req.body);
-        console.log('validatedData', validatedData);
         const { title, type, area, price, placeId, "extra-description": extraDescription, levels, bathrooms, bedrooms, propertyType } = validatedData;
 
         const result = await pool.query(
@@ -72,8 +71,6 @@ app.post("/api/create-listing", async (req, res) => {
 
         res.json(result.rows[0]);
     } catch (err) {
-        console.log('INSTANCE', err instanceof z.ZodError)
-        console.error('POST ERROR', err);
         if (err instanceof z.ZodError) {
             return res.status(400).json({ errors: err.issues });
         }
@@ -103,7 +100,6 @@ app.get('/api/fetch', async (req, res) => {
 
         const cachedData = cache.get(input);
         if (cachedData) {
-            console.log('cachedData', cachedData);
             return res.json(cachedData);
         }
 
