@@ -142,7 +142,7 @@ DB_PASSWORD=listings_password
 PORT=5000
 NODE_ENV=development
 
-# External API Configuration (optional)
+# External API Configuration (you have to change this to the actual endpoint provided for the area data)
 DATA_ENDPOINT=https://your-api-endpoint.com/api
 
 ```
