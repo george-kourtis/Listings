@@ -55,9 +55,6 @@ function App() {
   } = useFetchAreaData(selectedArea);
   const [generalError, setGeneralError] = useState<string | null>(null);
 
-  console.log("formState", formState);
-  console.log("show", showNoResults);
-
   const onSubmit = async (data: FormData) => {
     try {
       await createListing(data, setError, setGeneralError);
@@ -171,7 +168,6 @@ function App() {
           registerOptions={{
             required: "Bathrooms is required",
             validate: (value) => {
-              console.log("value", value);
               return (
                 (value !== undefined && !isNaN(Number(value))) ||
                 "Enter a valid number"
