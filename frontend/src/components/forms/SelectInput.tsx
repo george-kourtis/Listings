@@ -39,7 +39,7 @@ export default function SelectInput({
 }: SelectInputProps) {
   return (
     <div>
-      <Label htmlFor={name} className="font-bold text-lg">
+      <Label htmlFor={name} className="font-bold text-lg mb-2">
         {label}
       </Label>
 

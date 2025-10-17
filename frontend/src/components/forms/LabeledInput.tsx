@@ -35,7 +35,7 @@ export default function LabeledInput({
 }: LabeledInputProps) {
   return (
     <div>
-      <Label htmlFor={id} className="font-bold text-lg">
+      <Label htmlFor={id} className="font-bold text-lg mb-2">
         {label}
       </Label>
       <Input

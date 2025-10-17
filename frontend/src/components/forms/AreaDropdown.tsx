@@ -1,4 +1,4 @@
-import { Label } from "./ui/label";
+import { Label } from "../ui/label";
 import {
   Command,
   CommandEmpty,
@@ -6,8 +6,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/command";
-import { Input } from "./ui/input";
+} from "../ui/command";
+import { Input } from "../ui/input";
 import type { AreaType } from "@/lib/types";
 import type { UseFormRegister, UseFormSetValue } from "react-hook-form";
 import type { FormSchemaInput } from "@/lib/types";

@@ -73,7 +73,7 @@ export function MultiSelectCheckbox({
 
   return (
     <div className={className}>
-      <Label className="mb-1 font-bold text-lg">{label}</Label>
+      <Label className="mb-2 font-bold text-lg ">{label}</Label>
 
       {/* Hidden input for form integration */}
       {name && (

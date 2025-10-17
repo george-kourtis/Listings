@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import type { FormSchemaInput, FormData } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
-import AreaDropdown from "@/components/AreaDropdown";
+import AreaDropdown from "@/components/forms/AreaDropdown";
 import LabeledInput from "@/components/forms/LabeledInput";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
@@ -83,9 +83,9 @@ export default function Form() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto px-2">
       <Toaster position="top-center" />
-      <h1 className="text-3xl font-bold mb-4">Create your ad</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">Create your ad</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <LabeledInput
           label="Title"
@@ -228,7 +228,7 @@ export default function Form() {
         />
 
         <div>
-          <Label htmlFor="extra-description" className="font-bold text-lg">
+          <Label htmlFor="extra-description" className="font-bold text-lg mb-2">
             Extra Description
           </Label>
           <Textarea
