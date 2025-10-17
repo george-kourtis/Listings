@@ -24,4 +24,32 @@ export const formSchema = z.object({
       error: () => ({ message: "Property type is required" }),
     }
   ),
+  photos: z
+    .array(z.instanceof(File))
+    .optional()
+    .refine(
+      (files) => {
+        if (!files || files.length === 0) return true;
+        return files.every((file) => file.size <= 5 * 1024 * 1024);
+      },
+      {
+        message: "Each file must be smaller than 5MB",
+      }
+    )
+    .refine(
+      (files) => {
+        if (!files || files.length === 0) return true;
+        const allowedTypes = [
+          "image/jpeg",
+          "image/jpg",
+          "image/png",
+          "image/webp",
+          "image/gif",
+        ];
+        return files.every((file) => allowedTypes.includes(file.type));
+      },
+      {
+        message: "Only JPEG, PNG, WebP, and GIF images are allowed",
+      }
+    ),
 });

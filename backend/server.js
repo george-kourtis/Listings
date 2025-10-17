@@ -58,6 +58,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/create-listing", async (req, res) => {
+    // We do not save images directly in the DB
+    // The correct approach is to upload images to a storage service (e.g., AWS S3, Cloudinary) and save the urls in the DB
     try {
         const validatedData = listingSchema.parse(req.body);
         const { title, type, area, price, placeId, "extra-description": extraDescription, levels, bathrooms, bedrooms, propertyType } = validatedData;

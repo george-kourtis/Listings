@@ -15,8 +15,8 @@ import type { FormSchemaInput } from "@/lib/types";
 interface AreaDropdownProps {
   register: UseFormRegister<FormSchemaInput>;
   selectedArea: string | null;
-  handleAreaValueChange: (value: string) => void;
-  setSelectedArea: (value: string) => void;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string | null>>;
+  setSelectedArea: React.Dispatch<React.SetStateAction<string | null>>;
   areaData: AreaType[];
   setValue: UseFormSetValue<FormSchemaInput>;
   showNoResults: boolean;
@@ -28,17 +28,17 @@ interface AreaDropdownProps {
  *
  * @param {UseFormRegister<FormSchemaInput>} register - The register function from react-hook-form.
  * @param {string | null} selectedArea - The currently selected area.
- * @param {(value: string) => void} handleAreaValueChange - The callback called when the user changes the area input.
- * @param {(value: string) => void} setSelectedArea - The callback called when the user selects an area.
- * @param {AreaType[]} areaData - The list of areas to select from.
+ * @param {React.Dispatch<React.SetStateAction<string | null>>} setSearchQuery - A function to update the search query state.
+ * @param {React.Dispatch<React.SetStateAction<string | null>>} setSelectedArea - A function to update the selected area state.
+ * @param {AreaType[]} areaData - An array of AreaType objects to display in the dropdown.
  * @param {UseFormSetValue<FormSchemaInput>} setValue - The setValue function from react-hook-form.
- * @param {boolean} [isLoading=false] - Whether the component is currently loading data.
- * @param {boolean} showNoResults - Whether to show the "No results found" message.
+ * @param {boolean} showNoResults - A boolean indicating whether to show a "no results found" message.
+ * @param {boolean} [isLoading=false] - A boolean indicating whether the data is currently being fetched.
  */
 export default function AreaDropdown({
   register,
   selectedArea,
-  handleAreaValueChange,
+  setSearchQuery,
   setSelectedArea,
   areaData,
   setValue,
@@ -62,7 +62,7 @@ export default function AreaDropdown({
         <CommandInput
           value={selectedArea || ""}
           onValueChange={(value) => {
-            handleAreaValueChange(value);
+            setSearchQuery(value);
             setSelectedArea(value);
           }}
           className=""
@@ -87,6 +87,8 @@ export default function AreaDropdown({
                       setSelectedArea(
                         `${area.mainText}, ${area.secondaryText}`
                       );
+                      // Clear the search query to close the dropdown
+                      setSearchQuery(null);
                     }}
                   >
                     <span className="text-lg">
